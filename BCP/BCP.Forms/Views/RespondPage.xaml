@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BCP.Forms.Views.RespondPage"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    xmlns:localControl="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColour}"
+    Padding="{StaticResource ThicknessMax}"
+    Title="Respond">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout
+                Orientation="Vertical">
+                <ListView
+                    BackgroundColor="{StaticResource BackgroundColour}"
+                    x:Name="RespondSteps"
+                    ItemsSource="{Binding Steps}"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="true">
+                    <ListView.Header>
+                        <StackLayout
+                            BackgroundColor="{StaticResource BackgroundColour}"
+                            Orientation="Vertical"
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Label
+                                Text="Responding to incidents"
+                                Style="{StaticResource TopGreyHeading}"
+                                Margin="0,0,0,10"
+                                HorizontalTextAlignment="Center" />
+                            <Label
+                                Text="{Binding RespondHeader}"
+                                Style="{StaticResource WhiteSubHeading}"
+                                HorizontalTextAlignment="Center" />
+                            <BoxView
+                                HeightRequest="10"
+                                BackgroundColor="Transparent" />
+                        </StackLayout>
+                    </ListView.Header>
+                    <ListView.Footer>
+                        <StackLayout
+                            Orientation="Vertical"
+                            BackgroundColor="{StaticResource BackgroundColour}">
+                            <StackLayout
+                                Orientation="Vertical">
+                                <BoxView
+                                    HeightRequest="10"
+                                    BackgroundColor="{StaticResource BackgroundColour}">
+                                </BoxView>
+                            </StackLayout>
+                            <Label
+                                Style="{StaticResource TableCellHeading}"
+                                VerticalTextAlignment="Center"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center"
+                                Text="Useful tools ">
+                            </Label>
+                            <localControl:UsefultoolStackLayout
+                                UsefulTools="{Binding UsefulTool}"
+                                Orientation="Vertical"
+                                x:Name="UsefulToolsContainer">
+                            </localControl:UsefultoolStackLayout>
+                            <Button
+                                Text="Additional Information"
+                                IsVisible="{Binding AdditionalInformation,Converter={StaticResource ContentVisibilityConverter}}"
+                                Command="{Binding SelectWebView}"
+                                TextColor="{StaticResource GrosvenorGreenColour}"
+                                FontSize="15"
+                                BorderColor="Transparent"
+                                BackgroundColor="Transparent" />
+                            <!--Email Section Are End-->
+                        </StackLayout>
+                    </ListView.Footer>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid
+                                        BackgroundColor="{StaticResource BackgroundColour}"
+                                        RowSpacing="0">
+                                        <Grid.Padding>
+                                            <OnPlatform
+                                                x:TypeArguments="Thickness"
+                                                iOS="10"
+                                                Android="5" />
+                                        </Grid.Padding>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition
+                                                Height="*">
+                                            </RowDefinition>
+                                            <RowDefinition
+                                                Height="Auto">
+                                            </RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Frame
+                                            BackgroundColor="#f0f8ff"
+                                            Grid.Row="0"
+                                            HasShadow="true">
+                                            <Frame.Content>
+                                                <Grid
+                                                    BackgroundColor="#f0f8ff"
+                                                    Margin="1"
+                                                    Padding="3">
+                                                    <Label
+                                                        HorizontalTextAlignment="Center"
+                                                        Style="{StaticResource RespondStep}"
+                                                        VerticalTextAlignment="Center"
+                                                        Text="{Binding .}">
+                                                    </Label>
+                                                </Grid>
+                                            </Frame.Content>
+                                        </Frame>
+                                        <StackLayout
+                                            Orientation="Vertical"
+                                            Grid.Row="1"
+                                            IsVisible="{Binding .,Converter={StaticResource FlowSeparatorVisibilityConverter}, ConverterParameter={x:Reference RespondSteps}}">
+                                            <StackLayout.Margin>
+                                                <OnPlatform
+                                                    x:TypeArguments="Thickness"
+                                                    iOS="0,20,0,0"
+                                                    Android="0,10,0,0" />
+                                            </StackLayout.Margin>
+                                            <Image
+                                                HorizontalOptions="Center"
+                                                VerticalOptions="Center"
+                                                Source="icon_down_arrow_white.png" />
+                                        </StackLayout>
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <localControl:CustomActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+            </localControl:CustomActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

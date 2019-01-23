@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColour}"
+    xmlns:local="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    x:Class="BCP.Forms.Views.ResourcesPage"
+    Title="Resources">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout
+                Orientation="Vertical"
+                BackgroundColor="{StaticResource BackgroundColour}">
+                <!-- Links Section Are Start -->
+                <StackLayout
+                    Orientation="Vertical"
+                    Style="{StaticResource SectionLayoutStyle}">
+                    <ListView
+                        Margin="10,10,10,10"
+                        BackgroundColor="{StaticResource BackgroundColour}"
+                        x:Name="ResourceGroupedView"
+                        SeparatorColor="Transparent"
+                        ItemsSource="{Binding ResourceGroups}"
+                        HasUnevenRows="true"
+                        IsGroupingEnabled="true"
+                        GroupDisplayBinding="{Binding Category}">
+                        <ListView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout
+                                        Orientation="Vertical"
+                                        BackgroundColor="{StaticResource BackgroundColour}">
+                                        <Label
+                                            Text="{Binding Category}"
+                                            TextColor="White"
+                                            BackgroundColor="{StaticResource BackgroundColour}"
+                                            Style="{StaticResource TableCellHeading}"
+                                            Margin="5,12,0,2" />
+                                        <BoxView
+                                            HeightRequest="5"
+                                            BackgroundColor="{StaticResource BackgroundColour}" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.View>
+                                        <StackLayout
+                                            Orientation="Vertical"
+                                            BackgroundColor="{StaticResource BackgroundColour}">
+                                            <StackLayout
+                                                BackgroundColor="{StaticResource BackgroundColour}"
+                                                Orientation="Horizontal"
+                                                Margin="10,7,0,7">
+                                                <Image
+                                                    Source="{Binding Category,Converter={StaticResource ResourceCategoryIconConverter}}"
+                                                    WidthRequest="18"
+                                                    HeightRequest="18" />
+                                                <Label
+                                                    Text="{Binding Name}"
+                                                    TextColor="#1a7462"
+                                                    Style="{StaticResource TableCellText}"
+                                                    VerticalTextAlignment="Center" />
+                                            </StackLayout>
+                                            <BoxView
+                                                HeightRequest="1"
+                                                BackgroundColor="White"
+                                                IsVisible="{Binding .,Converter={StaticResource ResourceSeparatorVisibilityConverter}, ConverterParameter={x:Reference ResourceGroupedView}}" />
+                                        </StackLayout>
+                                    </ViewCell.View>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.Behaviors>
+                            <b:EventToCommandBehavior
+                                EventName="ItemTapped"
+                                Command="{Binding ItemTappedCommand}"
+                                EventArgsParameterPath="Item" />
+                        </ListView.Behaviors>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            <local:CustomActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+            </local:CustomActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

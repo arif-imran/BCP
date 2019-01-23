@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:localControl="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="BCP.Forms.Views.DetailWebViewPage">
+    <StackLayout>
+        <localControl:CustomWebView
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand">
+            <WebView.Source>
+                <HtmlWebViewSource
+                    Html="{Binding Html}">
+                </HtmlWebViewSource>
+            </WebView.Source>
+        </localControl:CustomWebView>
+    </StackLayout>
+</ContentPage>

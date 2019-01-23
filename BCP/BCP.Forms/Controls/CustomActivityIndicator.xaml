@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BCP.Forms.Controls.CustomActivityIndicator">
+    <ContentView.Content>
+        <Grid
+            x:Name="LoaderContainer"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <Grid
+                BackgroundColor="{StaticResource BackgroundColour}">
+            </Grid>
+            <StackLayout
+                Orientation="Vertical"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <ActivityIndicator
+                    IsRunning="true"
+                    IsVisible="true"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Color="White">
+                </ActivityIndicator>
+                <Label
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,0"
+                    FontSize="14"
+                    FontFamily="{StaticResource Amplitude-Regular}"
+                    TextColor="White"
+                    Text="Loading..." />
+                <!--<Image
+                    x:Name="image"
+                    Source="grosvenor_logo.png"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center">
+                </Image>
+                <Label
+                    x:Name="LoadingTextLabel"
+                    HorizontalOptions="Center"
+                    Margin="0,50,0,0"
+                    FontSize="14"
+                    FontFamily="{StaticResource Amplitude-Regular}"
+                    TextColor="White"
+                    Text="Loading..." />-->
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

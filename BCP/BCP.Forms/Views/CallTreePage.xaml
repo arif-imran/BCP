@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BCP.Forms.Views.CallTreePage"
+    xmlns:localControl="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    Title="Call Tree">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout
+                BackgroundColor="#f0f8ff"
+                Orientation="Vertical">
+                <ListView
+                    SeparatorVisibility="None"
+                    BackgroundColor="#f0f8ff"
+                    ItemsSource="{Binding CallTree}"
+                    HasUnevenRows="true"
+                    IsGroupingEnabled="true"
+                    GroupDisplayBinding="{Binding Key}"
+                    GroupShortNameBinding="{Binding Key}">
+                    <ListView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <ViewCell
+                                Height="1">
+                                <StackLayout
+                                    BackgroundColor="#FFFFFF"
+                                    Orientation="Horizontal">
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.GroupHeaderTemplate>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand"
+                                        Orientation="Vertical">
+                                        <Grid
+                                            BackgroundColor="#f0f8ff"
+                                            RowSpacing="0"
+                                            Padding="{StaticResource ThicknessMax}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                    Height="*">
+                                                </RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                    Width="3*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout
+                                                Spacing="0"
+                                                Orientation="Vertical">
+                                                <Label
+                                                    Text="{Binding FullName}"
+                                                    Style="{StaticResource ContactName}" />
+                                                <Label
+                                                    Text="{Binding JobTitle}"
+                                                    Style="{StaticResource Designation}"
+                                                    FontSize="11" />
+                                                <StackLayout
+                                                    Spacing="0"
+                                                    Margin="0,5,0,0"
+                                                    Orientation="Horizontal">
+                                                    <Image
+                                                        VerticalOptions="Center"
+                                                        Source="phone.png"
+                                                        IsVisible="{Binding Phone1,Converter={StaticResource ContentVisibilityConverter}}"
+                                                        HeightRequest="15"
+                                                        WidthRequest="15" />
+                                                    <localControl:HyperLinkLabel
+                                                        Text="{Binding Phone1}"
+                                                        IsVisible="{Binding Phone1,Converter={StaticResource ContentVisibilityConverter}}"
+                                                        Style="{StaticResource ContactCell}"
+                                                        VerticalOptions="CenterAndExpand">
+                                                    </localControl:HyperLinkLabel>
+                                                    <Image
+                                                        VerticalOptions="Center"
+                                                        Source="icon_ring_number.png"
+                                                        IsVisible="{Binding Phone2,Converter={StaticResource ContentVisibilityConverter}}"
+                                                        HeightRequest="15"
+                                                        WidthRequest="15" />
+                                                    <localControl:HyperLinkLabel
+                                                        Margin="0,0,0,0"
+                                                        Text="{Binding Phone2}"
+                                                        IsVisible="{Binding Phone2,Converter={StaticResource ContentVisibilityConverter}}"
+                                                        Style="{StaticResource ContactCell}"
+                                                        VerticalOptions="CenterAndExpand">
+                                                    </localControl:HyperLinkLabel>
+                                                </StackLayout>
+                                                <StackLayout
+                                                    Margin="0,0,0,0"
+                                                    Orientation="Horizontal"
+                                                    IsVisible="{Binding Email,Converter={StaticResource ContentVisibilityConverter}}">
+                                                    <Image
+                                                        VerticalOptions="Center"
+                                                        Source="mail.png"
+                                                        HeightRequest="15"
+                                                        WidthRequest="15" />
+                                                    <localControl:HyperLinkLabel
+                                                        Text="{Binding Email}"
+                                                        Style="{StaticResource ContactCell}"
+                                                        VerticalOptions="Center">
+                                                    </localControl:HyperLinkLabel>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <StackLayout
+                                                Margin="22,0,0,0"
+                                                Orientation="Vertical"
+                                                Spacing="0"
+                                                Grid.Row="0"
+                                                Grid.Column="1">
+                                                <localControl:UserImageControl
+                                                    VerticalOptions="EndAndExpand"
+                                                    UserName="{Binding UserName}"
+                                                    HeightRequest="50"
+                                                    Aspect="AspectFill"
+                                                    HorizontalOptions="Center" />
+                                            </StackLayout>
+                                        </Grid>
+                                        <BoxView
+                                            HeightRequest="1"
+                                            Margin="0,0,0,0"
+                                            BackgroundColor="{StaticResource LineColourGrey}" />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <localControl:CustomActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+            </localControl:CustomActivityIndicator>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

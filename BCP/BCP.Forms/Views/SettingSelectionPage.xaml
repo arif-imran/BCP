@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="BCP.Forms.Views.SettingSelectionPage"
+    xmlns:local="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    BackgroundColor="{StaticResource BackgroundColour}"
+    Title="{Binding Title}">
+    <Grid>
+        <StackLayout
+            Orientation="Vertical">
+            <ListView
+                BackgroundColor="{StaticResource BackgroundColour}"
+                SeparatorVisibility="None"
+                SeparatorColor="White"
+                ItemsSource="{Binding SettingItem}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Orientation="Vertical"
+                                Margin="15,5,15,0">
+                                <StackLayout
+                                    Padding="5,0,10,0"
+                                    Orientation="Horizontal">
+                                    <Label
+                                        Text="{Binding Name}"
+                                        Style="{StaticResource TitleLabelStyle}"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="FillAndExpand" />
+                                    <Image
+                                        HorizontalOptions="EndAndExpand"
+                                        HeightRequest="20"
+                                        WidthRequest="20"
+                                        Source="{Binding IsSelected,Converter={StaticResource SelectedOrUnselectedConverter}}" />
+                                </StackLayout>
+                                <BoxView
+                                    HeightRequest="1"
+                                    Margin="0,0,0,0"
+                                    BackgroundColor="{StaticResource LineColourGrey}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <b:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding ItemTappedCommand}"
+                        EventArgsParameterPath="Item" />
+                </ListView.Behaviors>
+            </ListView>
+        </StackLayout>
+        <local:CustomActivityIndicator
+            IsRunning="{Binding IsBusy}"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+        </local:CustomActivityIndicator>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="BCP.Forms.Views.GifImageViewer"
+    xmlns:local="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    Title="GifImageView">
+    <ContentPage.Content>
+        <Grid>
+            <local:CustomActivityIndicator
+                IsRunning="{Binding IsBusy}"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                x:Name="LoaderPanel">
+            </local:CustomActivityIndicator>
+            <StackLayout
+                Orientation="Vertical">
+                <Button
+                    Command="{Binding Animate}"
+                    x:Name="start"
+                    Text="{Binding ButtonTitle}">
+                </Button>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

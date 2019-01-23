@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.props" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug_Dev</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhone</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2C50A5E7-AFA9-4033-914E-B7BA7E236ED7}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>BCP.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>BCP.iOS</AssemblyName>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_Dev|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug_Dev</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;DEVELOPMENT</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignProvision></CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_Dev|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug_Dev</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEBUG;DEVELOPMENT</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_Dev|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release_Dev</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;MOBILE_IRON;DEVELOPMENT</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+    <CodesignProvision>Automatic:InHouse</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_Staging|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release_Staging</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;MOBILE_IRON;STAGING</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+    <CodesignProvision>Automatic:InHouse</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_Production|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release_Production</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;MOBILE_IRON;PRODUCTION</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+    <CodesignProvision>Automatic:InHouse</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'HA_Dev|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\HA_Dev</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;DEVELOPMENT</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+    <CodesignProvision>Automatic:AdHoc</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'HA_Staging|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\HA_Staging</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;STAGING</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'HA_Production|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\HA_Production</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;PRODUCTION</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'HA_Test|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\HA_Test</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;TEST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_Test|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release_Test</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;MOBILE_IRON;TEST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'HA_Test|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\HA_Test</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;TEST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_Test|iPhone' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release_Test</OutputPath>
+    <DefineConstants>__UNIFIED__;__MOBILE__;__IOS__;MOBILE_IRON;TEST</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <CodesignKey>iPhone Distribution: Grosvenor Group Management Services Ltd</CodesignKey>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="iOSInitializer.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="Services\DatabaseConnectionService.cs" />
+    <None Include="app.config" />
+    <None Include="Entitlements.plist" />
+    <None Include="Info.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork@2x" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Services\IosRestService.cs" />
+    <Compile Include="Renderers\CustomSearchBarRenderer.cs" />
+    <Compile Include="Renderers\HyperLinkLabelRenderer.cs" />
+    <Compile Include="Renderers\PdfWebViewRenderer.cs" />
+    <Compile Include="Renderers\CustomMapRenderer.cs" />
+    <Compile Include="Services\AppLinker.cs" />
+    <Compile Include="Services\CommonUtility.cs" />
+    <Compile Include="Renderers\CustomTabbedPageRenderer.cs" />
+    <Compile Include="AkavacheSqliteLinkerOverride.cs" />
+    <Compile Include="Services\IosUrlConnectionService.cs" />
+    <Compile Include="Services\IosAppInsightsAnalyticsProvider.cs" />
+    <Compile Include="Renderers\CustomListViewCellRenderer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCP.Forms\BCP.Forms.csproj">
+      <Project>{4E12F844-7F12-481A-AFBB-939342683F9B}</Project>
+      <Name>BCP.Forms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.DataAccess\BCP.DataAccess.csproj">
+      <Project>{667750E1-34C6-4D08-BDBA-AC5FEEC6FA9E}</Project>
+      <Name>BCP.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Facade\BCP.Facade.csproj">
+      <Project>{718F7402-7623-40AA-AD4A-7A5BDC80B73B}</Project>
+      <Name>BCP.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCP.Common\BCP.Common.csproj">
+      <Project>{1F12D306-6EA5-486C-92DC-1DA2E23F3935}</Project>
+      <Name>BCP.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default-Portrait.png" />
+    <BundleResource Include="Resources\Default-Portrait%402x.png" />
+    <BundleResource Include="Resources\Default.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Resources\Icon-60%403x.png" />
+    <BundleResource Include="Resources\Icon-Small-40%403x.png" />
+    <BundleResource Include="Resources\Icon-Small%403x.png" />
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\icon_down_arrow.png" />
+    <BundleResource Include="Resources\icon_gold_warning.png" />
+    <BundleResource Include="Resources\icon_left_arrow.png" />
+    <BundleResource Include="Resources\icon_search.png" />
+    <BundleResource Include="Resources\icon_silver_warning.png" />
+    <BundleResource Include="Resources\icon_bronze_warning.png" />
+    <BundleResource Include="Resources\CenturySchoolbook.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\WALKING-IN-BELGRAVIA.pdf" />
+    <BundleResource Include="Resources\icon_bronze_circle.png" />
+    <BundleResource Include="Resources\icon_gold_circle.png" />
+    <BundleResource Include="Resources\icon_green_circle.png" />
+    <BundleResource Include="Resources\icon_doctor.png" />
+    <BundleResource Include="Resources\icon_doctor1.png" />
+    <BundleResource Include="Resources\icon_firefighter.png" />
+    <BundleResource Include="Resources\icon_gps_pin.png" />
+    <BundleResource Include="Resources\icon_police.png" />
+    <BundleResource Include="Resources\newPoliceBadgePin.png" />
+    <BundleResource Include="Resources\amplitude_regular.ttf" />
+    <BundleResource Include="Resources\Apps4.png" />
+    <BundleResource Include="Resources\documents.png" />
+    <BundleResource Include="Resources\Links.png" />
+    <BundleResource Include="Resources\icon_down_arrow_dark.png" />
+    <BundleResource Include="Resources\person.jpg" />
+    <BundleResource Include="Resources\mail.png" />
+    <BundleResource Include="Resources\phone.png" />
+    <BundleResource Include="Resources\icon_cross.png" />
+    <BundleResource Include="Resources\icon_phone_call.png" />
+    <BundleResource Include="Resources\icon_placeholder.png" />
+    <BundleResource Include="Resources\grosvenor_logo.png" />
+    <BundleResource Include="Resources\icon_map_fire_red.png" />
+    <BundleResource Include="Resources\icon_map_hospital_green.png" />
+    <BundleResource Include="Resources\icon_map_police_blue.png" />
+    <BundleResource Include="Resources\icon_document_white.png" />
+    <BundleResource Include="Resources\icon_phone_white.png" />
+    <BundleResource Include="Resources\icon_respond_white.png" />
+    <BundleResource Include="Resources\grosvenor_logo.png" />
+    <BundleResource Include="Resources\icon_menu.png" />
+    <BundleResource Include="Resources\Mark.png" />
+    <BundleResource Include="Resources\icon_down_arrow_white.png" />
+    <BundleResource Include="Resources\icon_app_white.png" />
+    <BundleResource Include="Resources\icon_file_white.png" />
+    <BundleResource Include="Resources\icon_unlock_white.png" />
+    <BundleResource Include="Resources\icon_ring_number.png" />
+    <BundleResource Include="Resources\icon_circle_selected.png" />
+    <BundleResource Include="Resources\icon_circle_unselected.png" />
+    <BundleResource Include="Resources\placeholder.png" />
+    <BundleResource Include="Resources\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.3.0\lib\Xamarin.iOS10\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Forms, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Forms.6.3.0\lib\Xamarin.iOS1.0\Prism.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="Prism.Unity.Forms, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Unity.Forms.6.3.0\lib\Xamarin.iOS1.0\Prism.Unity.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.0.0.0, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_green.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_green.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.core.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.sqlite3, Version=1.0.0.0, Culture=neutral, PublicKeyToken=62684c7b4f184e3f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SQLitePCLRaw.provider.sqlite3.ios_unified.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.provider.sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="SQLite-net">
+      <HintPath>..\..\packages\sqlite-net-pcl.1.4.118\lib\netstandard1.1\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.29\lib\Xamarin.iOS10\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="ModernHttpClient">
+      <HintPath>..\..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmHelpers">
+      <HintPath>..\..\packages\Refractored.MvvmHelpers.1.3.0\lib\netstandard1.0\MvvmHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageCircle.Forms.Plugin.iOS">
+      <HintPath>..\..\packages\Xam.Plugins.Forms.ImageCircle.1.8.1\lib\Xamarin.iOS10\ImageCircle.Forms.Plugin.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions.Abstractions">
+      <HintPath>..\..\packages\Plugin.Permissions.2.0.1\lib\Xamarin.iOS10\Plugin.Permissions.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Permissions">
+      <HintPath>..\..\packages\Plugin.Permissions.2.0.1\lib\Xamarin.iOS10\Plugin.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.0.1\lib\Xamarin.iOS10\Plugin.Geolocator.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Geolocator">
+      <HintPath>..\..\packages\Xam.Plugin.Geolocator.4.0.1\lib\Xamarin.iOS10\Plugin.Geolocator.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\..\packages\Rx-Interfaces.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\..\packages\Rx-Core.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\..\packages\Rx-Linq.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\..\packages\Rx-PlatformServices.2.2.5\lib\portable-windows8+net45+wp8\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Splat">
+      <HintPath>..\..\packages\Splat.1.6.0\lib\Xamarin.iOS10\Splat.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache">
+      <HintPath>..\..\packages\akavache.core.5.0.0\lib\Xamarin.iOS10\Akavache.dll</HintPath>
+    </Reference>
+    <Reference Include="Akavache.Sqlite3">
+      <HintPath>..\..\packages\akavache.sqlite3.5.0.0\lib\Portable-Net45+Win8+WP8+Wpa81\Akavache.Sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.lib.e_sqlite3">
+      <HintPath>..\..\packages\SQLitePCLRaw.lib.e_sqlite3.ios_unified.static.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.lib.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.internal">
+      <HintPath>..\..\packages\SQLitePCLRaw.provider.internal.ios_unified.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.provider.internal.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_e_sqlite3">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\..\packages\SQLitePCLRaw.bundle_e_sqlite3.1.1.8\lib\Xamarin.iOS10\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="AI.XamarinSDK.Abstractions">
+      <HintPath>..\AnalyticsDependencies\lib\AI.XamarinSDK.iOS\AI.XamarinSDK.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="AI.XamarinSDK">
+      <HintPath>..\AnalyticsDependencies\lib\AI.XamarinSDK.iOS\AI.XamarinSDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Version.Plugin.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Version.1.0.0.0\lib\Xamarin.iOS10\Version.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Version.Plugin">
+      <HintPath>..\..\packages\Xam.Plugin.Version.1.0.0.0\lib\Xamarin.iOS10\Version.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity.Abstractions">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Connectivity">
+      <HintPath>..\..\packages\Xam.Plugin.Connectivity.3.0.3\lib\Xamarin.iOS10\Plugin.Connectivity.dll</HintPath>
+    </Reference>
+    <Reference Include="AppConnectSDKBinding">
+      <HintPath>..\..\packages\AppConnectSDKBinding.3.5.0.56\lib\Xamarin.iOS10\AppConnectSDKBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Grosvenor.Forms.MobileIron">
+      <HintPath>..\..\packages\Grosvenor.Forms.MobileIron.1.0.4\lib\portable45-net45+win8+wp8+wpa81\Grosvenor.Forms.MobileIron.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Grosvenor.Forms.MobileIron.iOS">
+      <HintPath>..\..\packages\Grosvenor.Forms.MobileIron.iOS.1.0.8\lib\xamarinios10\Grosvenor.Forms.MobileIron.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\..\packages\Xamarin.Forms.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\..\packages\Xamarin.Forms.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\..\packages\Xamarin.Forms.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\..\packages\Xamarin.Forms.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Grosvenor.Forms.iOS">
+      <HintPath>..\..\packages\Grosvenor.Forms.iOS.1.0.12\lib\xamarinios10\Grosvenor.Forms.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Grosvenor.Forms.Ui">
+      <HintPath>..\..\packages\Grosvenor.Forms.iOS.1.0.12\lib\xamarinios10\Grosvenor.Forms.Ui.dll</HintPath>
+    </Reference>
+    <Reference Include="Grosvenor.Forms.DataAccess">
+      <HintPath>..\..\packages\Grosvenor.Forms.DataAccess.1.0.9\lib\portable45-net45+win8+wp8+wpa81\Grosvenor.Forms.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Maps.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Maps.iOS">
+      <HintPath>..\..\packages\Xamarin.Forms.Maps.2.4.0.38779\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+    <Folder Include="Content\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-60%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-80x80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-120x120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-87x87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-58x58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-29x29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-40x40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-57x57.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-50x50.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-180x180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-100x100.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-72x72.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-144x144.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-114x114.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-167x167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-76x76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\app-icon-bcp-152x152.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.4.0.38779\build\netstandard1.0\Xamarin.Forms.targets')" />
+</Project>

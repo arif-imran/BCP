@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+	prism:ViewModelLocator.AutowireViewModel="True"
+	BackgroundColor="{StaticResource BrandLightColor}"
+	x:Class="BCP.Forms.Views.LoginPage">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="*" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<StackLayout
+			VerticalOptions="End"
+			HorizontalOptions="Center">
+			<Label
+				Text="GROSVENOR CONNECT"
+				Style="{StaticResource HeadingLabelStyle}" />
+			<Label
+				Text="___"
+				Style="{StaticResource HeadingLabelStyle}"
+				VerticalTextAlignment="Start" />
+		</StackLayout>
+		<StackLayout
+			Grid.Row="1"
+			VerticalOptions="Center"
+			HorizontalOptions="Center">
+			<Entry
+				Placeholder="Email Address"
+				Style="{StaticResource EntryStyle}"
+				Text="{Binding Username, Mode=TwoWay}" />
+			<Entry
+				Placeholder="Password"
+				Style="{StaticResource EntryStyle}"
+				Text="{Binding Password, Mode=TwoWay}" />
+		</StackLayout>
+		<Button
+			Grid.Row="2"
+			Style="{StaticResource ButtonStyle}"
+			Text="LOGIN"
+			Command="{Binding LoginCommand}" />
+		<Grid
+			Grid.RowSpan="3"
+			IsVisible="{Binding IsBusy}">
+			<Grid
+				BackgroundColor="Black"
+				Opacity="0.2" />
+			<ActivityIndicator Color="White" IsRunning="true">
+			</ActivityIndicator>
+		</Grid>
+	</Grid>
+</ContentPage>

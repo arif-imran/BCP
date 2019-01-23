@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:local="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    x:Class="BCP.Forms.Views.PdfViewerPage"
+    Title="{Binding Title}">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <local:PdfWebView
+                    Uri="{Binding DocumentBytes}"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <Grid
+                IsVisible="{Binding IsBusy}">
+                <Grid
+                    BackgroundColor="Black"
+                    Opacity="0.2" />
+                <ActivityIndicator
+                    Color="White"
+                    IsRunning="true"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                </ActivityIndicator>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

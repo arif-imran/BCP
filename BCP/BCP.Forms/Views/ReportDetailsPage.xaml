@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    xmlns:localControl="clr-namespace:BCP.Forms.Controls;assembly=BCP.Forms"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource BackgroundColour}"
+    x:Class="BCP.Forms.Views.ReportDetailsPage"
+    Title="Report Details">
+    <ScrollView>
+        <StackLayout>
+            <StackLayout
+                IsVisible="{Binding IncidentType.HowToRespond,Converter={StaticResource ContentVisibilityConverter}}"
+                BackgroundColor="#f0f8ff"
+                Orientation="Vertical"
+                Margin="15,15,15,15">
+                <Label
+                    Style="{StaticResource ReportDetailTitleLabelStyle}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    HeightRequest="50"
+                    FontFamily="Century Schoolbook"
+                    BackgroundColor="Transparent"
+                    Text="How to respond"
+                    FontAttributes="Italic"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS">Century Schoolbook</On>
+                            <On
+                                Platform="Android">CenturySchoolbook.ttf#CenturySchoolbook</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    BackgroundColor="Transparent"
+                    Margin="15,0,15,15"
+                    Style="{StaticResource RegularTextLabelStyle}"
+                    Text="{Binding IncidentType.HowToRespond}"
+                    HorizontalTextAlignment="Start">
+                </Label>
+            </StackLayout>
+            <!--Contact Text BOX-->
+            <StackLayout
+                IsVisible="{Binding IncidentType.ContactDetails,Converter={StaticResource ContentVisibilityConverter}}"
+                BackgroundColor="#f0f8ff"
+                Orientation="Vertical"
+                Margin="15,0,15,15">
+                <Label
+                    Style="{StaticResource ReportDetailTitleLabelStyle}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    FontFamily="Century Schoolbook"
+                    BackgroundColor="Transparent"
+                    Margin="0,15,0,15"
+                    Text="Contact details "
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS">Century Schoolbook</On>
+                            <On
+                                Platform="Android">CenturySchoolbook.ttf#CenturySchoolbook</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <StackLayout
+                        Spacing="0"
+                        Margin="15,0,0,5"
+                        Orientation="Vertical">
+                        <Label
+                            Text="{Binding IncidentType.ContactDetails.FullName}"
+                            Style="{StaticResource ContactName}" />
+                        <Label
+                            Text="{Binding IncidentType.ContactDetails.JobTitle}"
+                            Style="{StaticResource Designation}"
+                            FontSize="11" />
+                        <StackLayout
+                            Spacing="0"
+                            Margin="0,5,0,0"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                Source="icon_ring_number.png"
+                                HeightRequest="15"
+                                IsVisible="{Binding IncidentType.ContactDetails.Phone1,Converter={StaticResource ContentVisibilityConverter}}"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Text="{Binding IncidentType.ContactDetails.Phone1}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="0,0,5,0"
+                                IsVisible="{Binding IncidentType.ContactDetails.Phone1,Converter={StaticResource ContentVisibilityConverter}}">
+                            </localControl:HyperLinkLabel>
+                            <Image
+                                VerticalOptions="Center"
+                                Source="phone.png"
+                                IsVisible="{Binding IncidentType.ContactDetails.Phone2,Converter={StaticResource ContentVisibilityConverter}}"
+                                HeightRequest="15"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Margin="0,0,0,0"
+                                Text="{Binding IncidentType.ContactDetails.Phone2}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="CenterAndExpand">
+                            </localControl:HyperLinkLabel>
+                        </StackLayout>
+                        <StackLayout
+                            Margin="0,0,0,10"
+                            Orientation="Horizontal"
+                            IsVisible="{Binding IncidentType.ContactDetails.Email,Converter={StaticResource ContentVisibilityConverter}}">
+                            <Image
+                                VerticalOptions="Center"
+                                Source="mail.png"
+                                HeightRequest="15"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Text="{Binding IncidentType.ContactDetails.Email}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="Center">
+                            </localControl:HyperLinkLabel>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="EndAndExpand"
+                        Margin="0,0,30,0">
+                        <localControl:UserImageControl
+                            VerticalOptions="CenterAndExpand"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Aspect="AspectFill"
+                            UserName="{Binding IncidentType.ContactUserName}"
+                            HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <!--Backup Contact Text BOX-->
+            <StackLayout
+                IsVisible="{Binding IncidentType.BackupContact,Converter={StaticResource ContentVisibilityConverter}}"
+                BackgroundColor="#f0f8ff"
+                Orientation="Vertical"
+                Margin="15,0,15,15">
+                <Label
+                    Style="{StaticResource ReportDetailTitleLabelStyle}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Center"
+                    Margin="0,15,0,15"
+                    FontFamily="Century Schoolbook"
+                    BackgroundColor="Transparent"
+                    Text="Backup details "
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform
+                            x:TypeArguments="x:String">
+                            <On
+                                Platform="iOS">Century Schoolbook</On>
+                            <On
+                                Platform="Android">CenturySchoolbook.ttf#CenturySchoolbook</On>
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <StackLayout
+                    Orientation="Horizontal">
+                    <StackLayout
+                        Spacing="0"
+                        Margin="15,0,0,0"
+                        Orientation="Vertical">
+                        <Label
+                            Text="{Binding IncidentType.BackupContact.FullName}"
+                            Style="{StaticResource ContactName}" />
+                        <Label
+                            Text="{Binding IncidentType.BackupContact.JobTitle}"
+                            Style="{StaticResource Designation}"
+                            FontSize="11" />
+                        <StackLayout
+                            Spacing="0"
+                            Margin="0,5,0,0"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                Source="icon_ring_number.png"
+                                IsVisible="{Binding IncidentType.BackupContact.Phone1,Converter={StaticResource ContentVisibilityConverter}}"
+                                HeightRequest="15"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Text="{Binding IncidentType.BackupContact.Phone1}"
+                                IsVisible="{Binding IncidentType.BackupContact.Phone1,Converter={StaticResource ContentVisibilityConverter}}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="0,0,5,0">
+                            </localControl:HyperLinkLabel>
+                            <Image
+                                VerticalOptions="Center"
+                                Source="phone.png"
+                                IsVisible="{Binding IncidentType.BackupContact.Phone2,Converter={StaticResource ContentVisibilityConverter}}"
+                                HeightRequest="15"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Margin="0,0,0,0"
+                                Text="{Binding IncidentType.BackupContact.Phone2}"
+                                IsVisible="{Binding IncidentType.BackupContact.Phone2,Converter={StaticResource ContentVisibilityConverter}}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="CenterAndExpand">
+                            </localControl:HyperLinkLabel>
+                        </StackLayout>
+                        <StackLayout
+                            Margin="0,0,0,10"
+                            IsVisible="{Binding IncidentType.BackupContact.Email,Converter={StaticResource ContentVisibilityConverter}}"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                Source="mail.png"
+                                HeightRequest="15"
+                                WidthRequest="15" />
+                            <localControl:HyperLinkLabel
+                                Text="{Binding IncidentType.BackupContact.Email}"
+                                Style="{StaticResource ContactCell}"
+                                VerticalOptions="Center">
+                            </localControl:HyperLinkLabel>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        VerticalOptions="Center"
+                        HorizontalOptions="EndAndExpand"
+                        Margin="0,0,30,0">
+                        <localControl:UserImageControl
+                            VerticalOptions="CenterAndExpand"
+                            UserName="{Binding IncidentType.BackupContactUserName}"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Aspect="AspectFill"
+                            HorizontalOptions="CenterAndExpand" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

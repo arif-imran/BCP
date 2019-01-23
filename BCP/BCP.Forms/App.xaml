@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<prism:PrismApplication
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:prism="clr-namespace:Prism.Unity;assembly=Prism.Unity.Forms"
+    xmlns:converters="clr-namespace:BCP.Forms.Converters;assembly=BCP.Forms"
+    x:Class="BCP.Forms.App">
+    <prism:PrismApplication.Resources>
+        <ResourceDictionary>
+            <!-- Thickness -->
+            <Thickness
+                x:Key="ThicknessMax">10</Thickness>
+            <Thickness
+                x:Key="ThicknessMin">5</Thickness>
+            <Thickness
+                x:Key="TableCellThicknessMax">15,0,15,10</Thickness>
+            <Thickness
+                x:Key="TableCellThicknessMin">15,0,15,5</Thickness>
+            <Thickness
+                x:Key="SettingTableCellThickness">8,0,8,5</Thickness>
+            <!-- Converters -->
+            <converters:ColourIndexConverter
+                x:Key="ColourIndexConverter" />
+            <converters:FlowSeparatorVisibilityConverter
+                x:Key="FlowSeparatorVisibilityConverter" />
+            <converters:SeverityImageConverter
+                x:Key="SeverityImageConverter" />
+            <converters:ResourceCategoryIconConverter
+                x:Key="ResourceCategoryIconConverter" />
+            <converters:ContentVisibilityConverter
+                x:Key="ContentVisibilityConverter" />
+            <converters:ContactSeparatorVisibilityConverter
+                x:Key="ContactSeparatorVisibilityConverter" />
+            <converters:ResourceSeparatorVisibilityConverter
+                x:Key="ResourceSeparatorVisibilityConverter" />
+                        <converters:SelectedOrUnselectedConverter
+                x:Key="SelectedOrUnselectedConverter" />
+            <!-- Fonts -->
+            <Color
+                x:Key="BrandLightColor">#f6f6f6</Color>
+            <Color
+                x:Key="BrandColor">#c0c0c0</Color>
+            <Color
+                x:Key="BrandDarkColor">#525252</Color>
+            <Color
+                x:Key="BrandXDarkColor">#3c3c3c</Color>
+            <Color
+                x:Key="NavBarDarkColor">#2b2926</Color>
+            <Color
+                x:Key="UrlColor">#4c90f6</Color>
+            <Color
+                x:Key="GrosvenorGreenColour">#1A8575</Color>
+            <Color
+                x:Key="WhiteTextColour">#FFFFFF</Color>
+            <Color
+                x:Key="LaunchScreenBackgroundColour">#201E1C</Color>
+            <Color
+                x:Key="BlackTextColour">#000000</Color>
+            <Color
+                x:Key="LightGreyTextColour">#B1A79c</Color>
+            <Color
+                x:Key="BackgroundColour">#2b2926</Color>
+            <Color
+                x:Key="LineColourGrey">#B0A79C</Color>
+            <Color
+                x:Key="LineColourYellow">#F7D04F</Color>
+            <Color
+                x:Key="LineColourRed">#E35330</Color>
+            <Color
+                x:Key="LineColourPink">#E770A5</Color>
+            <Color
+                x:Key="LineColourGreen">#5FAA34</Color>
+            <Color
+                x:Key="LineColourBlue">#4E78BF</Color>
+            <Color
+                x:Key="LineColourPurple">#686BB2</Color>
+            <Color
+                x:Key="GoldBadgeColour">#c98910</Color>
+            <Color
+                x:Key="SilverBadgeColour">#a8a8a8</Color>
+            <Color
+                x:Key="BronzeBadgeColour">#965a38</Color>
+            <Color
+                x:Key="RegularTextColour">Black</Color>
+            <Color
+                x:Key="SubListBackgroundColour">#403E3B</Color>
+            <!-- Fonts-->
+            <OnPlatform
+                x:Key="Amplitude-Regular"
+                x:TypeArguments="x:String"
+                iOS="Amplitude-Regular"
+                Android="Amplitude-Regular"
+                WinPhone="" />
+            <OnPlatform
+                x:Key="CenturySchoolbook"
+                x:TypeArguments="x:String"
+                iOS="Century Schoolbook"
+                Android="CenturySchoolbook.ttf#CenturySchoolbook"
+                WinPhone="" />
+            <OnPlatform
+                x:Key="RegularFontFamily"
+                x:TypeArguments="x:String"
+                iOS="Calibri"
+                Android="sans-serif"
+                WinPhone="" />
+            <!-- Fonts Size-->
+            <OnPlatform
+                x:Key="XXFontSize"
+                x:TypeArguments="x:Double"
+                iOS="21"
+                Android="2"
+                WinPhone="21" />
+            <OnPlatform
+                x:Key="XFontSize"
+                x:TypeArguments="x:Double"
+                iOS="17"
+                Android="17"
+                WinPhone="17" />
+            <OnPlatform
+                x:Key="RegularFontSize"
+                x:TypeArguments="x:Double"
+                iOS="13"
+                Android="13"
+                WinPhone="13" />
+            <OnPlatform
+                x:Key="SmallFontSize"
+                x:TypeArguments="x:Double"
+                iOS="10"
+                Android="9"
+                WinPhone="9" />
+            <!-- Labels -->
+            <Style
+                x:Key="MainHeadTitleTextLabelStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Center" />
+            </Style>
+            <!-- Labels -->
+            <Style
+                x:Key="ReportDetailTitleLabelStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="17" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Italic" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Center" />
+            </Style>
+            <Style
+                x:Key="RegularTextLabelStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="11" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource RegularTextColour}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Start" />
+            </Style>
+            <Style
+                x:Key="TitleLabelStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandLightColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Start" />
+            </Style>
+            <Style
+                x:Key="TopGreyHeading"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="Century Schoolbook" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource XFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGreyTextColour}" />
+            </Style>
+            <Style
+                x:Key="WhiteSubHeading"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="Amplitude-Regular" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource WhiteTextColour}" />
+            </Style>
+            <Style
+                x:Key="TableCellHeading"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource CenturySchoolbook}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource XFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackTextColour}" />
+            </Style>
+            <Style
+                x:Key="TableCellText"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource Amplitude-Regular}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackTextColour}" />
+            </Style>
+            <Style
+                x:Key="RespondStep"
+                TargetType="Label"
+                BasedOn="{StaticResource TableCellText}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BackgroundColour}" />
+            </Style>
+            <Style
+                x:Key="RespondSectionHeading"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="Century Schoolbook" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource XFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BlackTextColour}" />
+            </Style>
+            <Style
+                x:Key="BoldLabelStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandXDarkColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="FontAttributes"
+                    Value="Bold" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Start" />
+            </Style>
+            <Style
+                x:Key="UrlLabelStyle"
+                TargetType="Label"
+                BasedOn="{StaticResource TitleLabelStyle}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource UrlColor}" />
+            </Style>
+            <Style
+                x:Key="DarkLabelStyle"
+                TargetType="Label"
+                BasedOn="{StaticResource TitleLabelStyle}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandXDarkColor}" />
+            </Style>
+            <!--labels-->
+            <Style
+                x:Key="WhiteBoldStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandLightColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+            <Style
+                x:Key="WhiteReqularStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandLightColor}" />
+            </Style>
+            <Style
+                x:Key="WhiteURLStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandLightColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+            </Style>
+            <Style
+                x:Key="GreyRegularStyle"
+                TargetType="Label">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandColor}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="HorizontalTextAlignment"
+                    Value="Start" />
+            </Style>
+            <Style
+                x:Key="DarkGreyRegularStyle"
+                TargetType="Label"
+                BasedOn="{StaticResource GreyRegularStyle}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandXDarkColor}" />
+            </Style>
+            <!-- Buttons -->
+            <Style
+                x:Key="ButtonStyle"
+                TargetType="Button">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandLightColor}" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource BrandDarkColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="30" />
+                <Setter
+                    Property="WidthRequest"
+                    Value="100" />
+            </Style>
+            <Style
+                x:Key="BigButtonStyle"
+                TargetType="Button">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="TextColor"
+                    Value="White" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="{StaticResource BrandDarkColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="50" />
+            </Style>
+            <Style
+                x:Key="MenuButtonStyle"
+                TargetType="Button">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="Center" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="Start" />
+                <Setter
+                    Property="Margin"
+                    Value="30, 0, 0, 0" />
+                <Setter
+                    Property="TextColor"
+                    Value="White" />
+                <Setter
+                    Property="BackgroundColor"
+                    Value="Transparent" />
+                <Setter
+                    Property="BorderColor"
+                    Value="Transparent" />
+            </Style>
+            <!-- TextFeild  -->
+            <Style
+                x:Key="EntryStyle"
+                TargetType="Entry">
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource RegularFontFamily}" />
+                <Setter
+                    Property="VerticalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="HorizontalOptions"
+                    Value="CenterAndExpand" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BrandDarkColor}" />
+                <Setter
+                    Property="PlaceholderColor"
+                    Value="{StaticResource BrandColor}" />
+                <Setter
+                    Property="HeightRequest"
+                    Value="35" />
+                <Setter
+                    Property="WidthRequest"
+                    Value="250" />
+            </Style>
+            <!-- Navigation -->
+            <Style
+                TargetType="NavigationPage">
+                <Setter
+                    Property="BarBackgroundColor"
+                    Value="{StaticResource NavBarDarkColor}" />
+                <Setter
+                    Property="BarTextColor"
+                    Value="#fff" />
+            </Style>
+            <!-- Call Tree -->
+            <Style
+                x:Key="ContactName"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource CenturySchoolbook}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource XFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource BackgroundColour}" />
+            </Style>
+            <Style
+                x:Key="Designation"
+                TargetType="Label">
+                <Setter
+                    Property="FontFamily"
+                    Value="{StaticResource Amplitude-Regular}" />
+                <Setter
+                    Property="FontSize"
+                    Value="{StaticResource RegularFontSize}" />
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource LightGreyTextColour}" />
+            </Style>
+            <Style
+                x:Key="ContactCell"
+                TargetType="Label"
+                BasedOn="{StaticResource TableCellText}">
+                <Setter
+                    Property="TextColor"
+                    Value="{StaticResource GrosvenorGreenColour}" />
+            </Style>
+            <!-- Call Tree-->
+            <!--LayOut-->
+            <Style
+                x:Key="ContainerLayoutStyle"
+                TargetType="StackLayout">
+                <Setter
+                    Property="Margin"
+                    Value="10,10,10,200" />
+            </Style>
+            <Style
+                x:Key="SectionLayoutStyle"
+                TargetType="StackLayout">
+                <Setter
+                    Property="Margin"
+                    Value="10" />
+            </Style>
+            <!-- Settings Page-->
+            <Style
+                x:Key="LocationAndRole"
+                TargetType="Label">
+                <Setter
+                    Property="Margin"
+                    Value="10,0,0,0" />
+                <Setter
+                    Property="FontFamily"
+                    Value="Amplitude sans-serif" />
+                <Setter
+                    Property="TextColor"
+                    Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </prism:PrismApplication.Resources>
+</prism:PrismApplication>
